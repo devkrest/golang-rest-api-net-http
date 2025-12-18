@@ -1,5 +1,6 @@
 package middleware
 
+import (
 	"log/slog"
 	"net/http"
 	"runtime/debug"

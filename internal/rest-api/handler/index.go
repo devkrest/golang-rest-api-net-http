@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -8,7 +9,6 @@ import (
 	"github.com/lakhan-purohit/net-http/internal/pkg/middleware"
 	"github.com/lakhan-purohit/net-http/internal/pkg/response"
 	_ "github.com/lakhan-purohit/net-http/internal/rest-api/service"
-	scalargo "github.com/bdpiprava/scalar-go"
 	httpSwagger "github.com/swaggo/http-swagger"
 )
 

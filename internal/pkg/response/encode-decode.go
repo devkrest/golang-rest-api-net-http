@@ -125,6 +125,11 @@ func Unauthorized(res SendParams) {
 	send(res, false, http.StatusUnauthorized, "Unauthenticated")
 }
 
+// UnauthorizedAccess sends a 401 response (Alias for Unauthorized)
+func UnauthorizedAccess(res SendParams) {
+	send(res, false, http.StatusUnauthorized, "Unauthorized Access")
+}
+
 // Forbidden sends a 403 response
 func Forbidden(res SendParams) {
 	send(res, false, http.StatusForbidden, "Forbidden")

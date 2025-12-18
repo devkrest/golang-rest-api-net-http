@@ -3,7 +3,9 @@ package service
 import (
 	"net/http"
 
+	"github.com/lakhan-purohit/net-http/internal/pkg/request"
 	"github.com/lakhan-purohit/net-http/internal/pkg/response"
+	"github.com/lakhan-purohit/net-http/internal/rest-api/model"
 	"github.com/lakhan-purohit/net-http/internal/rest-api/repository"
 )
 
@@ -65,10 +67,23 @@ func UserGetListHandler(repo repository.IUserRepository) http.HandlerFunc {
 // @Router /api/v1/private/user/get-full-list [get]
 func UserGetFullListHandler(repo repository.IUserRepository) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		limit, offset := request.GetPagination(r)
+		
+		var pg request.PaginationRequest
+		if err := request.BindQuery(r, &pg); err != nil {
+			response.BadRequest(response.SendParams{
+				W:       w,
+				Message: err.Error(),
+			})
+			return
+		}
+
+		// Defaults
+		if pg.Limit == 0 {
+			pg.Limit = 10
+		}
 
 		// 1. Fetch Users
-		users, err := repo.GetList(r.Context(), limit, offset)
+		users, err := repo.GetList(r.Context(), pg.Limit, pg.Offset)
 		if err != nil {
 			response.InternalError(response.SendParams{W: w, Message: err.Error()})
 			return

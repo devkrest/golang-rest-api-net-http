@@ -27,9 +27,12 @@
 package main
 
 import (
-	"github.com/lakhan-purohit/net-http/internal/pkg/server"
 	"log/slog"
 	"os"
+
+	"github.com/lakhan-purohit/net-http/internal/pkg/config"
+	"github.com/lakhan-purohit/net-http/internal/pkg/db"
+	"github.com/lakhan-purohit/net-http/internal/pkg/server"
 )
 
 func main() {

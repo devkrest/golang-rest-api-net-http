@@ -28,6 +28,6 @@ func New(status int, message string, code string) *AppError {
 var (
 	ErrNotFound      = New(http.StatusNotFound, "Resource not found", "NOT_FOUND")
 	ErrUnauthorized  = New(http.StatusUnauthorized, "Unauthorized access", "UNAUTHORIZED")
-	ErrBadRequest    = New(http.StatusStatusBadRequest, "Invalid request", "BAD_REQUEST")
+	ErrBadRequest    = New(http.StatusBadRequest, "Invalid request", "BAD_REQUEST")
 	ErrInternal      = New(http.StatusInternalServerError, "Internal server error", "INTERNAL_ERROR")
 )
