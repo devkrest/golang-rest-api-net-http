@@ -22,6 +22,14 @@ A high-performance, production-ready REST API built with Go's standard `net/http
 ### 1. Prerequisites
 - **Go**: 1.23+ recommended.
 - **MySQL**: 8.0+ for optimal compatibility.
+- **Air**: For live reloading. Install via:
+  ```bash
+  go install github.com/air-verse/air@latest
+  ```
+- **Swag**: For documentation. Install via:
+  ```bash
+  go install github.com/swaggo/swag/cmd/swag@latest
+  ```
 
 ### 2. Installation
 ```bash
@@ -62,12 +70,25 @@ JWT_REFRESH_EXPIRES_IN=168h
 
 ---
 
-## 📜 Master Makefile (Elite Automation)
-One command to rule them all. High-efficiency developer workflows:
-- `make run`: Starts development with **Air (Live Reload)**.
-- `make docs`: Regenerates both **Swagger** and **Scalar** documentation.
-- `make tidy`: Automates module cleanup and security updates.
-- `make build`: Produces an optimized, production-ready binary.
+## 🛠️ Developer Workflow (CLI Commands)
+
+Use these commands for high-efficiency development:
+- **Run Development (Hot Reload)**:
+  ```bash
+  air
+  ```
+- **Generate API Documentation**:
+  ```bash
+  swag init -g cmd/main.go
+  ```
+- **Update Dependencies**:
+  ```bash
+  go mod tidy
+  ```
+- **Build Production Binary**:
+  ```bash
+  go build -o bin/api.exe ./cmd/main.go
+  ```
 
 ---
 
