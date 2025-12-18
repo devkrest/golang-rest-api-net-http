@@ -1,4 +1,4 @@
-# 🚀 Lekas API - Elite Go REST Standard
+# 🚀 Golang API - Elite Go REST Standard
 
 [![Go Version](https://img.shields.io/github/go-mod/go-version/lekhnath/net-http?color=00ADD8&logo=go)](https://go.dev/)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
@@ -31,10 +31,10 @@ go mod tidy
 ```
 
 ### 3. Database Setup
-1. Create a MySQL database (e.g., `lekas_api`).
+1. Create a MySQL database (e.g., `golang_api`).
 2. Run the initial schema:
 ```bash
-mysql -u root -p lekas_api < schema.sql
+mysql -u root -p golang_api < schema.sql
 ```
 
 ### 4. Environment Setup
@@ -47,7 +47,7 @@ APP_PORT=8001
 # MySQL Database (Connection Pooling Enabled)
 DB_HOST=localhost
 DB_PORT=3306
-DB_NAME=test
+DB_NAME=golang_api
 DB_USER=root
 DB_PASSWORD=
 DB_MAX_OPEN_CONNS=25
